@@ -6,33 +6,29 @@
 //     timer: 1500
 //   })
 
-$(".addToCart").on("click", function (e) {
-    e.preventDefault();
-    alert($(this).attr('href'));
+$(".addToCart").on("click", function () {
 
-    // var button     = this,
-    //     divContent = $(this).parent(),
-    //     form       = this.form,
-    //     formdata   = new FormData(form);
-    // $.ajax({
-    //     url  : form.action,
-    //     type : "POST",
-    //     data : formdata,
-    //     mimeTypes: "multipart/form-data",
-    //     contentType: false,
-    //     cache: false,
-    //     processData: false,
-    //     success: function (data) {
+    var button     = this , 
+        form       = this.form,
+        formdata   = new FormData(form);
+    $.ajax({
+        url  : form.action,
+        type : "POST",
+        data : formdata,
+        contentType: false,
+        cache: false,
+        processData: false,
+        success: function (data) {
+         alert(data)
 
+        }, error : function(reject){
 
-    //     }, error : function(reject){
+            var response = $.parseJSON(reject.responseText) ;
 
-    //         var response = $.parseJSON(reject.responseText) ;
+            $.each (response.errors , function (key , val){
 
-    //         $.each (response.errors , function (key , val){
-
-    //             //$('#' + key + '_error').text(val[0]);
-    //         })
-    //     },
-    // });
+                //$('#' + key + '_error').text(val[0]);
+            })
+        },
+    });
 });
