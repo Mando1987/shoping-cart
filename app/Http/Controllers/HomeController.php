@@ -27,9 +27,10 @@ class HomeController extends Controller
         return view('home');
     }
     public function store(){
-
+    
+      // select * from products -[latest] order by id desc -[take] limit 3 ;
        $latestProducts = Product::latest('id')->take(3)->get();
-       
-       return $latestProducts;
+
+       return view('store', compact('latestProducts'));
     }
 }
