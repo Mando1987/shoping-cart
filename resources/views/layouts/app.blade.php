@@ -47,8 +47,10 @@
                         <!-- Authentication Links -->
                         <li class="nav-item">
                             <a class="nav-link" href="#">
-                                <span class="fa fa-shopping-cart">
-                                    0
+                                <span class="fa fa-shopping-cart" id="totalQuntity">
+
+                                    My cart ({{session()->has('cart')?session()->get('cart')->totalQuntity : '0'}})
+
                                 </span>
 
                             </a>
