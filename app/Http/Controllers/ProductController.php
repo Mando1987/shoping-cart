@@ -107,4 +107,15 @@ class ProductController extends Controller
              ];
        
     }
+    public function showCart(){
+        
+       if (session()->has('cart')){
+
+           $cart = session()->get('cart');
+
+       }else{
+           $cart = null;
+       }
+       return view('cart.show', compact('cart'));
+    }
 }
