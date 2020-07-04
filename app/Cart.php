@@ -4,6 +4,28 @@ namespace App;
 
 class Cart 
 {
+    /**
+     * 
+     * out put 
+     * items = [
+     *    0 =>[
+     *            title   : title,
+     *            price   : 123,
+     *            image   : url,
+     *            Quntity : 1,
+     *        ] ,               
+     *    1 =>[
+     *            title   : title,
+     *            price   : 123,
+     *            image   : url,
+     *            Quntity : 1,
+     *        ] ,               
+     * 
+     *     ] , 
+     *   $totalQuntity = 12,
+     *   $totalPrice =123;
+     * 
+     */
    public $items = [];
    public $totalQuntity ;
    public $totalPrice ;
@@ -38,6 +60,7 @@ class Cart
         $this->items[$product->id] = $item  ;
         $this->totalQuntity       += 1  ;
         $this->totalPrice         += $product->price  ;
+
     }else{
         
         $this->totalQuntity       += 1  ;
