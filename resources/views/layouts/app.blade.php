@@ -10,8 +10,6 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
     <link rel="stylesheet" href="{{ asset('plugin/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('plugin/css/fontawesome.css') }}">
     <!-- Fonts -->
@@ -21,6 +19,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/sweetalert2.min.css') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -95,6 +94,11 @@
             @yield('content')
         </main>
     </div>
+<!-- Scripts -->
+<script src="{{ asset('js/app.js') }}" ></script>
+<script src="{{asset('js/jquery.min.js')}}"></script>
+<script src="{{asset('js/sweetalert2.all.min.js')}}"></script>
+<script src="{{asset('js/main.js')}}"></script>
 </body>
 
 </html>
