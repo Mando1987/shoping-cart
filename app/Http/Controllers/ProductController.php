@@ -101,7 +101,10 @@ class ProductController extends Controller
        session()->put('cart', $cart);
        // session()->has('cart')?session()->get('cart')->totalQuntity : '0'
        $totalQuntity = $cart->totalQuntity;
-       return ['req' => 'success' , 'msg' => 'product added successfuly' , 'totalQuntity' => $totalQuntity];
+       return ['req' => 'success' , 
+               'msg' => 'product added successfuly Quntity is : '.$totalQuntity ,
+                'totalQuntity' => $totalQuntity
+             ];
        
     }
 }
