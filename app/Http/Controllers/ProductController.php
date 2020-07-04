@@ -100,7 +100,7 @@ class ProductController extends Controller
        $cart->add($product);
        session()->put('cart', $cart);
 
-       return ['success' , 'product added successfuly'];
+       return ['success' => 'product added successfuly'];
        
     }
 }
