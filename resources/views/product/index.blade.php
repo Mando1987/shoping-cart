@@ -11,7 +11,11 @@
                     <div class="card-body">
                     <h5 class="card-title">{{$product->title}}</h5>
                     <p class="card-text">  {{$product->price}}</p>
-                    <a href="{{route('cart.add')}}" class="btn btn-success">buy</a>
+                        <form  action="{{route('cart.add' , $product->id)}}" method="POST">
+                            @csrf
+                            @method('POST')
+                            <button type="button" class="btn btn-success addToCart">buy</button>
+                        </form>
                     </div>
                   </div>
             </div>   
