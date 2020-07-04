@@ -19,15 +19,15 @@ $(".addToCart").on("click", function () {
         cache: false,
         processData: false,
         success: function (data) {
-
+           
             if (data.req == "success") {
-                
+                $('#totalQuntity').text('My cart('+data.totalQuntity+')');
                 Swal.fire({
                     position: 'top-end',
                     icon: data.req,
                     title: data.msg,
                     showConfirmButton: false,
-                    timer: 1500
+                    timer: 2500
                 })
             }
 
