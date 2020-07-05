@@ -96,8 +96,9 @@
         <main class="py-4 mt-5">
             @yield('content')
         </main>
+        
     </div>
-    @include('sweetalert::alert')
+@include('sweetalert::alert')
 <!-- Scripts -->
 @section('script')
   <script src="{{ asset('js/app.js') }}" ></script>

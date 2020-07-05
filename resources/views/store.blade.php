@@ -23,7 +23,7 @@
                      <form  action="{{route('cart.add' , $product->id)}}" method="POST">
                         @csrf
                         @method('POST')
-                        <button type="button" class="btn btn-success addToCart">buy</button>
+                        <button type="submit" class="btn btn-success addToCart">buy</button>
                     </form>
                    
                      

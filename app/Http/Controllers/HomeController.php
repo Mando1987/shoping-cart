@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Product;
 
+
 class HomeController extends Controller
 {
     /**
@@ -26,10 +27,12 @@ class HomeController extends Controller
         return view('home');
     }
     public function store(){
+
         if(session()->has('req')){
 
             toast( session()->get('msg'), session()->get('req'));
         }
+
       // select * from products -[latest] order by id desc -[take] limit 3 ;
        $latestProducts = Product::latest('id')->take(3)->get();
 

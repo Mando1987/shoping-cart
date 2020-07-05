@@ -16,6 +16,10 @@ class ProductController extends Controller
      */
     public function index()
     {
+        if(session()->has('req')){
+
+            toast( session()->get('msg'), session()->get('req'));
+        }
         $products = Product::all();
 
         return view('product.index',['products' => $products]);
@@ -99,13 +103,11 @@ class ProductController extends Controller
        }
 
        $cart->add($product);
-       session()->put('cart', $cart);
-       // session()->has('cart')?session()->get('cart')->totalQuntity : '0'
-       $totalQuntity = $cart->totalQuntity;
-       return ['req' => 'success' , 
-               'msg' => 'product added successfuly Quntity is : '.$totalQuntity ,
-                'totalQuntity' => $totalQuntity
-             ];
+
+        session()->put('cart', $cart);
+
+        return redirect()->back()->with(['req' => 'success', 'msg'=> 'Product added to your cart']) ;
+
        
     }
     public function showCart(){
@@ -135,12 +137,10 @@ class ProductController extends Controller
         if($charge){
 
             session()->forget('cart');
-            return redirect()->route('store')->with(['req' => 'success' , 
-            'msg' => 'product charged successfuly ! '
-          ]);
-
+            return redirect()->route('store')->with(['req' => 'success' , 'msg' => 'Payment added successfuly']);
+            
         }else{
-            return redirect()->back();
+            return redirect()->back()->with(['req' => 'erorr' , 'msg' => 'Payment failed to add']);
         }
 
         

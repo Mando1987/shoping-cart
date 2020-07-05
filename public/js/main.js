@@ -1,11 +1,4 @@
-// Swal.fire({
-//     position: 'top-end',
-//     icon: 'success',
-//     title: 'Your work has been saved',
-//     showConfirmButton: false,
-//     timer: 1500
-//   })
-
+/*
 $(".addToCart").on("click", function () {
 
     var button = this,
@@ -19,17 +12,19 @@ $(".addToCart").on("click", function () {
         cache: false,
         processData: false,
         success: function (data) {
+
+            data.req;
            
-            if (data.req == "success") {
-                $('#totalQuntity').text('My cart('+data.totalQuntity+')');
-                Swal.fire({
-                    position: 'top-end',
-                    icon: data.req,
-                    title: data.msg,
-                    showConfirmButton: false,
-                    timer: 2500
-                })
-            }
+            // if (data.req == "success") {
+            //     $('#totalQuntity').text('My cart('+data.totalQuntity+')');
+            //     Swal.fire({
+            //         position: 'top-end',
+            //         icon: data.req,
+            //         title: data.msg,
+            //         showConfirmButton: false,
+            //         timer: 2500
+            //     })
+            // }
 
         },
         error: function (reject) {
@@ -42,4 +37,4 @@ $(".addToCart").on("click", function () {
             })
         },
     });
-});
+});*/
