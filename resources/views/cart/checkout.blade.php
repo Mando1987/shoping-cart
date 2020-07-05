@@ -50,6 +50,7 @@
                     <h5 class="card-title">total amount <strong>${{ $totalAmount }}</h5>
                     <form action="{{ route('cart.charge') }}" method="post" id="payment-form">
                         @csrf
+                        <input type="hidden" name="amount" value="{{ $totalAmount }}">
                         <div class="">
                             <label for="card-element card-text">
                                 Credit or debit card

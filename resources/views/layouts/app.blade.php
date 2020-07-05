@@ -102,7 +102,19 @@
   <script src="{{ asset('js/app.js') }}" ></script>
   <script src="{{asset('js/jquery.min.js')}}"></script>
   <script src="{{asset('js/sweetalert2.all.min.js')}}"></script>
-  <script src="{{asset('js/main.js')}}"></script>  
+  <script src="{{asset('js/main.js')}}"></script> 
+
+  @if(session()->has('req'))
+     <script>
+       Swal.fire({
+            position: 'top-end',
+            icon    : "{{session()->get('req')}}",
+            title   : "{{session()->get('msg')}}",
+            showConfirmButton: false,
+            timer: 1500
+      })
+     </script>
+  @endif
 @show
 </body>
 
