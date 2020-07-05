@@ -77,7 +77,15 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $validate = $request->validate([
+
+            'Quntity' => 'required|numeric|min:1',
+        ]);
+        $cart = new Cart(session()->get('cart'));
+        $cart->updateQuntity($product->id , $request->Quntity);
+        session()->put('cart', $cart);
+       return  redirect()->route('cart.show')->with(['req' => 'success' , 'msg'=> 'change product quntity']);
+        
     }
 
     /**

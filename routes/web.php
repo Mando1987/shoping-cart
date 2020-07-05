@@ -23,6 +23,9 @@ Route::get('/products', 'ProductController@index')->name('product.index');
 
 Route::post('/addToCart/{product}', 'ProductController@addToCart')->name('cart.add');
 Route::delete('/products/{product}', 'ProductController@destroy')->name('cart.remove');
+
+Route::put('/product/{product}', 'ProductController@update')->name('product.update');
+
 Route::get('/showCart', 'ProductController@showCart')->name('cart.show');
 
 Route::middleware(['auth'])->group(function(){

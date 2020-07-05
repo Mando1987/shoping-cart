@@ -69,7 +69,8 @@ class Cart
     }
     
     $this->items[$product->id]['Quntity'] += 1  ;
-   } 
+   }
+
    public function removeFromCart($id)
    {
       if (array_key_exists($id , $this->items)){
@@ -78,5 +79,17 @@ class Cart
           $this->totalPrice   -= $this->items[$id]['Quntity'] * $this->items[$id]['price']; 
           unset($this->items[$id]);
       }
+   }
+   
+   public function updateQuntity($id, $quntity){
+       // remove product Quntity and price from cart total ;
+       $this->totalQuntity -= $this->items[$id]['Quntity']; 
+       $this->totalPrice   -= $this->items[$id]['Quntity'] * $this->items[$id]['price']; 
+       
+       //add new Quntity and price for product ;
+       $this->items[$id]['Quntity'] = $quntity;
+       $this->totalQuntity         += $quntity; 
+       $this->totalPrice           += $quntity * $this->items[$id]['price']; 
+   
    }
 }
