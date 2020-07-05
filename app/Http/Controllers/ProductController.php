@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Cart;
 use App\Product;
 use Illuminate\Http\Request;
+use Cartalyst\Stripe\Laravel\Facades\Stripe;
 
 class ProductController extends Controller
 {
@@ -125,6 +126,23 @@ class ProductController extends Controller
 
     public function stripeCharge(Request $request)
     {
-     dd($request->stripeToken);
+        $charge = Stripe::charges()->create([
+            'currency'    => 'USD',
+            'amount'      => $request->amount,
+            'source'      => $request->stripeToken,
+            'description' => 'test from laravel',
+        ]);
+        if($charge){
+
+            session()->forget('cart');
+            return redirect()->route('store')->with(['req' => 'success' , 
+            'msg' => 'product charged successfuly ! '
+          ]);
+
+        }else{
+            return redirect()->back();
+        }
+
+        
     }
 }

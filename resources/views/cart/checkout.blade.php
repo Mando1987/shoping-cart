@@ -36,8 +36,6 @@
 
 </style>
 @endsection
-
-
 @section('content')
 <div class="container">
     <div class="row">
@@ -70,9 +68,6 @@
     </div>
 </div>
 @endsection
-
-
-
 @section('script')
 @parent
 <script src="https://js.stripe.com/v3/"></script>
