@@ -46,7 +46,7 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{route('cart.show')}}">
                                 <span class="fa fa-shopping-cart" id="totalQuntity">
 
                                     My cart ({{session()->has('cart')?session()->get('cart')->totalQuntity : '0'}})
