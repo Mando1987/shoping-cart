@@ -108,7 +108,7 @@ class ProductController extends Controller
        
     }
     public function showCart(){
-        
+
        if (session()->has('cart')){
 
            $cart = session()->get('cart');
@@ -117,5 +117,14 @@ class ProductController extends Controller
            $cart = null;
        }
        return view('cart.show', compact('cart'));
+    }
+    public function checkout($totalAmount){
+
+       return view('cart.checkout')->with('totalAmount', $totalAmount);
+    }
+
+    public function stripeCharge(Request $request)
+    {
+     dd($request->stripeToken);
     }
 }
