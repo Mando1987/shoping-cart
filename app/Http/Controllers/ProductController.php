@@ -135,7 +135,9 @@ class ProductController extends Controller
             'description' => 'test from laravel',
         ]);
         if($charge){
-
+            auth()->user()->orders()->create([
+                 'cart' => serialize(session()->get('cart')),
+            ]);
             session()->forget('cart');
             return redirect()->route('store')->with(['req' => 'success' , 'msg' => 'Payment added successfuly']);
             
