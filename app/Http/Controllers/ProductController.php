@@ -88,7 +88,15 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $cart =new Cart(session()->get('cart'));
+        $cart->removeFromCart($product->id);
+
+        if ($cart->totalPrice <= 0){
+            session()->forget('cart');
+        }else{
+            session()->put('cart', $cart);
+        }
+        return redirect()->route('cart.show')->with(['req' => 'success' , 'msg'=> 'product remove from cart successfuly']);
     }
 
     public function addToCart(Product $product){
@@ -111,6 +119,10 @@ class ProductController extends Controller
        
     }
     public function showCart(){
+        if(session()->has('req')){
+
+            toast( session()->get('msg'), session()->get('req'));
+        }
 
        if (session()->has('cart')){
 

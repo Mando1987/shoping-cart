@@ -22,11 +22,15 @@ Route::get('/store', 'HomeController@store')->name('store');
 Route::get('/products', 'ProductController@index')->name('product.index');
 
 Route::post('/addToCart/{product}', 'ProductController@addToCart')->name('cart.add');
+Route::delete('/products/{product}', 'ProductController@destroy')->name('cart.remove');
 Route::get('/showCart', 'ProductController@showCart')->name('cart.show');
 
 Route::middleware(['auth'])->group(function(){
 
     Route::get('/checkout/{totalAmount}', 'ProductController@checkout')->name('cart.checkout');
+
+    Route::get('/orders', 'OrderController@index')->name('user.orders');
+
     Route::post('/checkout/charge', 'ProductController@stripeCharge')->name('cart.charge');
 
 });

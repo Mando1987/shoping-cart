@@ -50,6 +50,7 @@ class Cart
    public function add($product)
    {
       $item =[
+          'id'      =>$product->id ,
           'title'   =>$product->title ,
           'price'   =>$product->price ,
           'Quntity' => 0 ,
@@ -69,4 +70,13 @@ class Cart
     
     $this->items[$product->id]['Quntity'] += 1  ;
    } 
+   public function removeFromCart($id)
+   {
+      if (array_key_exists($id , $this->items)){
+
+          $this->totalQuntity -= $this->items[$id]['Quntity']; 
+          $this->totalPrice   -= $this->items[$id]['Quntity'] * $this->items[$id]['price']; 
+          unset($this->items[$id]);
+      }
+   }
 }
