@@ -20,6 +20,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/sweetalert2.min.css') }}" rel="stylesheet">
+    @yield('style')
 </head>
 
 <body>
@@ -97,10 +98,12 @@
         </main>
     </div>
 <!-- Scripts -->
-<script src="{{ asset('js/app.js') }}" ></script>
-<script src="{{asset('js/jquery.min.js')}}"></script>
-<script src="{{asset('js/sweetalert2.all.min.js')}}"></script>
-<script src="{{asset('js/main.js')}}"></script>
+@section('script')
+  <script src="{{ asset('js/app.js') }}" ></script>
+  <script src="{{asset('js/jquery.min.js')}}"></script>
+  <script src="{{asset('js/sweetalert2.all.min.js')}}"></script>
+  <script src="{{asset('js/main.js')}}"></script>  
+@show
 </body>
 
 </html>
